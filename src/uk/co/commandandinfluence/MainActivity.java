@@ -1,9 +1,11 @@
 package uk.co.commandandinfluence;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -17,6 +19,8 @@ import com.pusher.client.connection.ConnectionEventListener;
 import com.pusher.client.connection.ConnectionState;
 import com.pusher.client.connection.ConnectionStateChange;
 
+import com.cloudbase.*;
+
 public class MainActivity extends Activity {
 
 	@Override
@@ -24,11 +28,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Pusher pusher = new Pusher("7d3ebc72c0912d712cd6");
+		Pusher pusher = new Pusher("7d3ebc72c0912d712cd6");		
 		
 		final ListView list = (ListView) findViewById(R.id.main_list);
 		
 		final List<String> commands = new ArrayList<String>();
+		
+		CBHelper myHelper = new CBHelper("commandandinfluence", this.getString(R.string.cloudbase_key), this);
+		myHelper.setPassword((this.getString(R.string.cloudbase_password)));
 		
 		/**
 		 * Configure the list view to an array backup data
