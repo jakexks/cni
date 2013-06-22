@@ -7,6 +7,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="lib" path="libs/cbhelper.jar"/>
-	<classpathentry kind="lib" path="libs/gson-2.2.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
